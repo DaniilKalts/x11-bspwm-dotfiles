@@ -1,5 +1,6 @@
 return {
   "jose-elias-alvarez/null-ls.nvim",
+  enabled = false,
   config = function()
     local null_ls = require("null-ls")
 
@@ -46,9 +47,14 @@ return {
     -- Auto-format on save
     vim.api.nvim_create_autocmd("BufWritePre", {
       callback = function()
-        vim.lsp.buf.format({ async = false })
+        vim.lsp.buf.format({
+          async = false,
+          filter = function(client)
+            return client.name ~= "null-ls"
+          end,
+        })
       end,
-      desc = "Auto format on save",
+      desc = "Auto format on save without null-ls",
     })
   end,
 }

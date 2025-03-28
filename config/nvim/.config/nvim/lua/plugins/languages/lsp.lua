@@ -24,23 +24,31 @@ return {
 			local lspconfig = require("lspconfig")
 
 			-- Common on_attach function for all LSP servers
-			local on_attach = function(client, bufnr)
-				-- Keybindings for LSP actions
-				local opts = { noremap = true, silent = true, buffer = bufnr }
-				vim.keymap.set("n", "<leader>i", vim.lsp.buf.hover, opts)
-				vim.keymap.set("n", "<leader>d", vim.lsp.buf.definition, opts)
-				vim.keymap.set("n", "<leader>rf", vim.lsp.buf.references, opts)
-				vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action, opts)
-				vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, opts)
+      local on_attach = function(client, bufnr)
+        local opts = { noremap = true, silent = true, buffer = bufnr }
+        vim.keymap.set("n", "<leader>i", vim.lsp.buf.hover, opts)
+        vim.keymap.set("n", "<leader>d", vim.lsp.buf.definition, opts)
+        vim.keymap.set("n", "<leader>rf", vim.lsp.buf.references, opts)
+        vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action, opts)
+        vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, opts)
 
-				-- If using ESLint, add auto-fix on save
-				if client.name == "eslint" then
-					vim.api.nvim_create_autocmd("BufWritePre", {
-						buffer = bufnr,
-						command = "EslintFixAll",
-					})
-				end
-			end
+        -- Set up auto-format on save for the current buffer
+        vim.api.nvim_create_autocmd("BufWritePre", {
+          buffer = bufnr,
+          callback = function()
+            vim.lsp.buf.format({ async = false })
+          end,
+          desc = "Auto format on save",
+        })
+
+        -- If using ESLint, add auto-fix on save
+        if client.name == "eslint" then
+          vim.api.nvim_create_autocmd("BufWritePre", {
+            buffer = bufnr,
+            command = "EslintFixAll",
+          })
+        end
+      end
 
 			-- LSP servers configuration
 			lspconfig.lua_ls.setup({

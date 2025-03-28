@@ -29,7 +29,6 @@ require("lazy").setup({
 	-- Language Plugins
 	require("plugins.languages.lsp"),
 	require("plugins.languages.completions"),
-	require("plugins.languages.null-ls"),
 
 	-- Editor Enhancements
 	require("plugins.editor.alpha"),
