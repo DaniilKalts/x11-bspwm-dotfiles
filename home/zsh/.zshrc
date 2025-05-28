@@ -23,7 +23,16 @@ plugins=(
   zsh-history-substring-search
   fzf-zsh-plugin
   auto-notify
+  thefuck
 )
+
+# To record timestamps (epoch + duration) in a history file
+HISTSIZE=1000000
+SAVEHIST=1000000
+HISTFILE=~/.zsh_history
+
+setopt EXTENDED_HISTORY
+export HIST_STAMPS="%F %T"
 
 # Source Oh My Zsh
 source $ZSH/oh-my-zsh.sh
@@ -183,6 +192,8 @@ alias shutdown='~/bin/update-and-shutdown.sh'
 ## Alias for restarting and updating all packages
 alias restart='~/bin/update-and-restart.sh'
 
+alias islamgame="python ~/projects/python/Voxelborn/main.py"
+
 ## Alias for Penguin Fetch
 alias pfetch='neofetch --config ~/bin/fetches/penguinfetch.conf'
 
@@ -220,3 +231,13 @@ tx=36:"
 
 # To customize prompt, run p10k configure or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+export PATH=$PATH:$HOME/go/bin
+
+export PATH="$HOME/go/bin:$PATH"
+source $HOME/.cargo/env
+
+export PATH=$PATH:/snap/bin
+
+# Created by `pipx` on 2025-05-28 00:53:06
+export PATH="$PATH:/home/daniilkalts/.local/bin"
