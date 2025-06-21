@@ -129,6 +129,7 @@ alias copy='xclip -sel clip <'  # Copy to clipboard
 
 ## Alias cat to bat for syntax highlighting
 alias bcat='bat'
+alias bless = 'bat'
 
 ## Functions for using bat with less, head, and tail
 function bless() {
