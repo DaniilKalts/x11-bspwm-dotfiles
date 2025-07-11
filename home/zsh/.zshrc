@@ -85,7 +85,7 @@ zle -N fzf-history-widget
 fzf-file-widget() {
   local selected_file
   selected_file=$(find . \( -type d -o -type f \) -print 2> /dev/null | fzf --height 60% --reverse --ansi \
-    --preview 'exa -l --color=always --icons {}' \
+    --preview 'eza -l --color=always --icons {}' \
     --color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9,fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9 \
     --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6,marker:#ff79c6,spinner:#ffb86c,header:#6272a4)
   if [ -n "$selected_file" ]; then
@@ -110,7 +110,7 @@ zle -N fzf_preview
 rg_fzf_preview() {
   local selected_line
   selected_line=$(rg --column --line-number --no-heading --color=always -F "$1" \
-    | fzf --ansi --exact --no-sort --preview 'bat --style=numbers --color=always --line-range=$(awk -F: "{if (\$2 > 10) {print \$2-10\":\"\$2+10} else {print \"1:\"\$2+10}}" <<< {}) --highlight-line=$(awk -F: "{print \$2}" <<< {}) $(awk -F: "{print \$1}" <<< {})' \
+    | fzf --ansi --ezact --no-sort --preview 'bat --style=numbers --color=always --line-range=$(awk -F: "{if (\$2 > 10) {print \$2-10\":\"\$2+10} else {print \"1:\"\$2+10}}" <<< {}) --highlight-line=$(awk -F: "{print \$2}" <<< {}) $(awk -F: "{print \$1}" <<< {})' \
     --preview-window=right:60%:wrap --height=60% --border)
   if [ -n "$selected_line" ]; then
     local file=$(echo "$selected_line" | cut -d: -f1)
@@ -163,26 +163,26 @@ function yy() {
   zle reset-prompt  # Force Zsh to reprocess the prompt immediately
 }
 
-## Aliases for exa (enhanced ls command)
-alias ls='exa --color=auto --group-directories-first'
-alias ll='exa -l --color=auto --group-directories-first'
-alias la='exa -a --color=auto --group-directories-first'
-alias tree='exa --tree'
-alias lia='exa -la --icons --color=always'
-alias liatree='exa -la --icons --color=always --tree'
-alias tree1='exa --tree --level=1'
-alias tree2='exa --tree --level=2'
-alias tree3='exa --tree --level=3'
-alias tree4='exa --tree --level=4'
-alias treea='exa --tree -a'
-alias treea1='exa --tree -a --level=1'
-alias treea2='exa --tree -a --level=2'
-alias treea3='exa --tree -a --level=3'
-alias treea4='exa --tree -a --level=4'
-alias liatree1='exa -la --icons --color=always --tree --level=1'
-alias liatree2='exa -la --icons --color=always --tree --level=2'
-alias liatree3='exa -la --icons --color=always --tree --level=3'
-alias liatree4='exa -la --icons --color=always --tree --level=4'
+## Aliases for eza (enhanced ls command)
+alias ls='eza --color=auto --group-directories-first'
+alias ll='eza -l --color=auto --group-directories-first'
+alias la='eza -a --color=auto --group-directories-first'
+alias tree='eza --tree'
+alias lia='eza -la --icons --color=always'
+alias liatree='eza -la --icons --color=always --tree'
+alias tree1='eza --tree --level=1'
+alias tree2='eza --tree --level=2'
+alias tree3='eza --tree --level=3'
+alias tree4='eza --tree --level=4'
+alias treea='eza --tree -a'
+alias treea1='eza --tree -a --level=1'
+alias treea2='eza --tree -a --level=2'
+alias treea3='eza --tree -a --level=3'
+alias treea4='eza --tree -a --level=4'
+alias liatree1='eza -la --icons --color=always --tree --level=1'
+alias liatree2='eza -la --icons --color=always --tree --level=2'
+alias liatree3='eza -la --icons --color=always --tree --level=3'
+alias liatree4='eza -la --icons --color=always --tree --level=4'
 
 ## Alias for mkcd (create a new directory and change to it)
 alias mkcd='mkcd'
@@ -212,7 +212,7 @@ alias daysbetween='~/bin/calendar/calendar_utils.sh days_between_dates' # Usage:
 # Use Dracula theme for fzf
 export FZF_DEFAULT_OPTS='--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9 --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6 --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4'
 
-# exa color scheme definitions
+# eza color scheme definitions
 export EXA_COLORS="\
 uu=36:\
 gu=37:\
