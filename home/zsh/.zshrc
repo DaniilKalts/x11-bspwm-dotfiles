@@ -242,3 +242,7 @@ export PATH=$PATH:/snap/bin
 
 # Created by `pipx` on 2025-05-28 00:53:06
 export PATH="$PATH:/home/daniilkalts/.local/bin"
+
+# A safer alternative to rm
+# It adds files to trash bin
+alias rm='trash'
