@@ -1,0 +1,15 @@
+[core]
+	editor = nvim
+	autocrlf = input
+  pager = delta
+[delta]
+  syntax-theme = Dracula
+  features = side-by-side line-numbers decorations
+[color]
+	ui = auto
+[init]
+	defaultBranch = main
+[push]
+	autoSetupRemote = true
+[url "git@github.com:"]
+	insteadOf = "https://github.com"
