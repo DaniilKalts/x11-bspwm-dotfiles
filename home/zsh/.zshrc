@@ -27,10 +27,6 @@ plugins=(
 )
 
 # To record timestamps (epoch + duration) in a history file
-HISTSIZE=1000000
-SAVEHIST=1000000
-HISTFILE=~/.zsh_history
-
 setopt EXTENDED_HISTORY
 export HIST_STAMPS="%F %T"
 
@@ -129,7 +125,11 @@ alias copy='xclip -sel clip <'  # Copy to clipboard
 
 ## Alias cat to bat for syntax highlighting
 alias bcat='bat'
-alias bless = 'bat'
+
+alias glg="g log --graph --decorate --all --abbrev-commit \
+ --date=relative --color \
+ --pretty=format:'%C(bold yellow)%h%C(reset) %C(green)%ar%C(reset) \
+ %C(bold blue)%d%C(reset)%n  %s %C(dim white)– %an%C(reset)'"
 
 ## Functions for using bat with less, head, and tail
 function bless() {
@@ -183,9 +183,6 @@ alias liatree1='eza -la --icons --color=always --tree --level=1'
 alias liatree2='eza -la --icons --color=always --tree --level=2'
 alias liatree3='eza -la --icons --color=always --tree --level=3'
 alias liatree4='eza -la --icons --color=always --tree --level=4'
-
-## Alias for mkcd (create a new directory and change to it)
-alias mkcd='mkcd'
 
 ## Alias for shutting down and updating all packages
 alias shutdown='~/bin/update-and-shutdown.sh'
@@ -246,3 +243,7 @@ export PATH="$PATH:/home/daniilkalts/.local/bin"
 # A safer alternative to rm
 # It adds files to trash bin
 alias rm='trash'
+
+alias neofetch='fastfetch'
+
+export PATH="$HOME/.local/bin:$PATH"
