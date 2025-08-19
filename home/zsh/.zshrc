@@ -49,10 +49,6 @@ bindkey -M viins 'jk' enter-vi-normal-mode
 bindkey -M viins '^[a' autosuggest-accept
 bindkey -M vicmd '^[a' autosuggest-accept
 
-## Bind Ctrl+H to fzf history search in vi insert and command modes
-bindkey -M viins '^H' fzf-history-widget
-bindkey -M vicmd '^H' fzf-history-widget
-
 ## Bind Ctrl+F to fzf file/directory search in vi insert and command modes
 bindkey -M viins '^F' fzf-file-widget
 bindkey -M vicmd '^F' fzf-file-widget
