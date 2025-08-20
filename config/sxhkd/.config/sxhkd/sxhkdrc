@@ -179,6 +179,10 @@ alt + l
 alt + q
     firefox-developer-edition https://monkeytype.com/
 
+# Cursor
+alt + e
+    cursor
+
 # Pick Color
 alt + p
     ~/bin/xcolor-pick.sh
