@@ -226,15 +226,7 @@ tx=36:"
 # To customize prompt, run p10k configure or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-export PATH=$PATH:$HOME/go/bin
-
-export PATH="$HOME/go/bin:$PATH"
 source $HOME/.cargo/env
-
-export PATH=$PATH:/snap/bin
-
-# Created by `pipx` on 2025-05-28 00:53:06
-export PATH="$PATH:/home/daniilkalts/.local/bin"
 
 # A safer alternative to rm
 # It adds files to trash bin
@@ -242,4 +234,6 @@ alias rm='trash'
 
 alias neofetch='fastfetch'
 
-export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$HOME/go/bin:/snap/bin:$PATH"
+
+export EDITOR='nvim'
