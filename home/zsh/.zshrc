@@ -127,6 +127,8 @@ alias glg="g log --graph --decorate --all --abbrev-commit \
  --pretty=format:'%C(bold yellow)%h%C(reset) %C(green)%ar%C(reset) \
  %C(bold blue)%d%C(reset)%n  %s %C(dim white)– %an%C(reset)'"
 
+alias glom="g log --format=%s"
+
 ## Functions for using bat with less, head, and tail
 function bless() {
   bat --paging=always "$@"
